@@ -14,9 +14,22 @@ terms. By starting with 1 and 2, the first 10 terms will be:
 
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
-
 **/
 
+// Set initial values.
+$fib_num = 3; // Start at 3, as there is no previous_num at 1.
+$result = 2; // Add the missing 2.
 
+for ($fib_array = array(1,2); $fib_num <= 4000000; $fib_num = array_sum($fib_array)){
 
+  if ($fib_num % 2 == 0){
+    $result += $fib_num;
+  }
+
+  // Shift fibonacci array values down.
+  $fib_array[0] = $fib_array[1];
+  $fib_array[1] = $fib_num;
+}
+
+echo $result;
 ?>
